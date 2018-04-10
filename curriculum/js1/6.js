@@ -5,8 +5,12 @@
  * @returns {number}
  */
 
-const solution = (a) => {
-  return 0;
+const solution = (a, n=2) => {
+  if ((a < 2) || (a === n))
+    return 0;
+
+  return ((a % n) ? 0 : n) + solution(a, n+1);
+
 };
 
 module.exports = {
