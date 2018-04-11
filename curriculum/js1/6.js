@@ -5,11 +5,11 @@
  * @returns {number}
  */
 
-const solution = (a, n=2) => {
+const solution = (a, n=2, result=0) => {
   if ((a < 2) || (a === n))
-    return 0;
+    return result;
 
-  return ((a % n) ? 0 : n) + solution(a, n+1);
+  return solution(a, n+1, result + ((a % n) ? 0 : n));
 
 };
 
