@@ -6,11 +6,11 @@
  * @returns {string}
  */
 
-const solution = (a, b) => {
+const solution = (a, b, result='') => {
   if (a === 0)
-    return '';
+    return result
 
-  return b + solution(a-1, b);
+  return solution(a-1, b, result+b);
 };
 
 module.exports = {
