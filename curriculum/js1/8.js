@@ -5,18 +5,18 @@
  * @returns {number}
  */
 
-const solution = (a, b, n=2) => {
+const solution = (a, b, n=2, result=1) => {
   if ((a === 1) || (b === 1))
-    return 1;
+    return result;
 
   const min = a > b? b : a;
 
   if (min < n)
-    return 1;
+    return result;
 
   return (!(a % n) && (!(b % n)))?
-    n * solution(a/n, b/n, n) :
-    solution(a, b, n+1);
+    solution(a/n, b/n, n, n*result) :
+    solution(a, b, n+1, result);
 };
 
 module.exports = {
