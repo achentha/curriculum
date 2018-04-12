@@ -12,7 +12,10 @@ const solution = (a, n=2) => {
   if (a === n)
     return true;
 
-  return (a % n)? solution(a, n+1) : false;
+  if ((a % n) === 0)
+    return false;
+
+  return solution(a, n+1);
 };
 
 module.exports = {
