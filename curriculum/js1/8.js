@@ -14,9 +14,10 @@ const solution = (a, b, n=2, result=1) => {
   if (min < n)
     return result;
 
-  return (!(a % n) && (!(b % n)))?
-    solution(a/n, b/n, n, n*result) :
-    solution(a, b, n+1, result);
+  if (!(a % n) && (!(b % n)))
+    result = n;
+
+  return solution(a, b, n+1, result);
 };
 
 module.exports = {
