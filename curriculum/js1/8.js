@@ -5,19 +5,9 @@
  * @returns {number}
  */
 
-const solution = (a, b, n=2, result=1) => {
-  if ((a === 1) || (b === 1))
-    return result;
-
-  const min = a > b? b : a;
-
-  if (min < n)
-    return result;
-
-  if (!(a % n) && (!(b % n)))
-    result = n;
-
-  return solution(a, b, n+1, result);
+const solution = (a, b, i=a) => {
+  if (a%i === 0 && b%i === 0) return i;
+  return solution(a, b, i-1);
 };
 
 module.exports = {
