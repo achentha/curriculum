@@ -5,8 +5,17 @@
  * @returns {array}
  */
 
+const isPrime = ((num, i=2) => {
+  if (num < 2) return false;
+  if (i === num) return true;
+  if (num % i === 0) return false;
+  return isPrime(num, i+1);
+})
+
 const solution = (a) => {
-  return [];
+  return a.map(el => {
+    return isPrime(el) ? el : 1;
+  });
 };
 
 module.exports = {
