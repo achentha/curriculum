@@ -5,7 +5,8 @@
  */
 
 const solution = (a) => {
-  return 0;
+  if (!a.length) return '';
+  return a.reduce((sum,el) => {return (sum+el)},0);
 };
 
 module.exports = {
