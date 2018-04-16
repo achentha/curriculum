@@ -5,7 +5,8 @@
  */
 
 const solution = (a) => {
-  return 0;
+  if (!a.length) return '';
+  return a.reduce((max,el) => {return (el>max)? el : max});
 };
 
 module.exports = {
