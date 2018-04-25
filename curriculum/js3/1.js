@@ -5,7 +5,9 @@
  */
 
 const solution = (obj)=>{
-  return 0;
+  let val = Object.values(obj);
+  if (val.length === 0) return null;
+  return val.reduce((max,el) => el>max? el : max);
 }
 
 module.exports = {
