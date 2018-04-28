@@ -6,7 +6,7 @@
  */
 
 const solution = (a) => {
-  return a.map(el => {return el%2 ? 0 : el});
+  return a.map(el => el%2 ? 0 : el);
 };
 
 module.exports = {
