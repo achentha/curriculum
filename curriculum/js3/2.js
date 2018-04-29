@@ -32,12 +32,20 @@ const solution = (arr)=>{
 }
 */
 
-/* ver 2 */
-const findMax = require('./1.js).findMax;
+/* ver 2 - recursive */
 const buildFreq = (a,obj) => {
   if (!a.length) return obj;
-  obj[a[0]] = obj[a[0]] === undefined ? 1 : obj[a[0]}+1;
+  obj[a[0]] = obj[a[0]] === undefined ? 1 : obj[a[0]]+1;
   return buildFreq(a.slice(1),obj);
+}
+
+const findMax = (a,max,i,iMax) => {
+  if (!a.length) return iMax;
+  if (a[0] > max) {
+    max = a[0];
+    iMax = i;
+  }
+  return findMax(a.slice(1), max, i+1 ,iMax);
 }
 
 const solution = (arr) => {
@@ -46,8 +54,10 @@ const solution = (arr) => {
 
   let freqObj = buildFreq(arr,{});
   let val = Object.values(freqObj);
-  return findMax(val,val[0]);
+  let num = Object.keys(freqObj);
+  let iMax = findMax(val,val[0],0,0);
 
+  return parseInt(num[iMax]);
 }
 
 module.exports = {
