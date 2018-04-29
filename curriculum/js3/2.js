@@ -4,6 +4,7 @@
  * @param return {number}
  */
 
+/* ver 1 - forEach() & reduce()
 const solution = (arr)=>{
   if (!arr.length) return null;
 
@@ -28,6 +29,25 @@ const solution = (arr)=>{
 
   //key is the number
   return parseInt(Object.keys(obj)[i]);
+}
+*/
+
+/* ver 2 */
+const findMax = require('./1.js).findMax;
+const buildFreq = (a,obj) => {
+  if (!a.length) return obj;
+  obj[a[0]] = obj[a[0]] === undefined ? 1 : obj[a[0]}+1;
+  return buildFreq(a.slice(1),obj);
+}
+
+const solution = (arr) => {
+  if (!arr.length) return null;
+  if (arr.length === 1) return arr[0];
+
+  let freqObj = buildFreq(arr,{});
+  let val = Object.values(freqObj);
+  return findMax(val,val[0]);
+
 }
 
 module.exports = {
