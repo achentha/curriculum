@@ -5,18 +5,10 @@
  * @returns {array}
  */
 
-const isPrime = ((num, i=2) => {
-  if (num < 2) return false;
-  if (i === num) return true;
-  if (num % i === 0) return false;
-  return isPrime(num, i+1);
-})
-
-const solution = (a) => {
-  return a.map(el => {
-    return isPrime(el) ? el : 1;
-  });
-};
+const isPrime  = require('../js1/7.js');
+const solution = (a => 
+  a.map(el => isPrime.solution(el) ? el : 1)
+)
 
 module.exports = {
   solution,
