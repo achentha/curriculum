@@ -27,6 +27,7 @@ const solution = (obj) => {
 }
 
 module.exports = {
-  solution
+  solution: solution,
+  finxMax: findMax,
 }
 
