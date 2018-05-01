@@ -33,13 +33,13 @@ const solution = (arr)=>{
 */
 
 /* ver 2 - recursive */
-const buildFreq = (a,obj) => {
+const buildFreq = (a,obj={}) => {
   if (!a.length) return obj;
   obj[a[0]] = obj[a[0]] === undefined ? 1 : obj[a[0]]+1;
   return buildFreq(a.slice(1),obj);
 }
 
-const findMax = (a,max,i,iMax) => {
+const findMax = (a,max,i=0,iMax=0) => {
   if (!a.length) return iMax;
   if (a[0] > max) {
     max = a[0];
@@ -52,10 +52,10 @@ const solution = (arr) => {
   if (!arr.length) return null;
   if (arr.length === 1) return arr[0];
 
-  let freqObj = buildFreq(arr,{});
+  let freqObj = buildFreq(arr);
   let val = Object.values(freqObj);
   let num = Object.keys(freqObj);
-  let iMax = findMax(val,val[0],0,0);
+  let iMax = findMax(val,val[0]);
 
   return parseInt(num[iMax]);
 }
