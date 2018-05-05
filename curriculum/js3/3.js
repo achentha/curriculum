@@ -18,16 +18,16 @@ const solution = (a)=>{
 */
 
 /* ver 2 - recursive */
-const buildFreq = (a,obj={}) => {
-  if (!a.length) return obj;
-  obj[a[0]] = obj[a[0]] === undefined ? 1 : obj[a[0]]+1;
-  return buildFreq(a.slice(1), obj);
+const buildFreq = (a,i=0,obj={}) => {
+  if (i >= a.length) return obj;
+  obj[a[i]] = obj[a[i]] === undefined ? 1 : obj[a[i]]+1;
+  return buildFreq(a,i+1,obj);
 }
 
-const findDup = (entry,res=[]) => {
-  if (!entry.length) return res;
-  if (entry[0][1] > 1) res.push(parseInt(entry[0][0]));
-  return findDup(entry.splice(1),res);
+const findDup = (entry,i=0,res=[]) => {
+  if (i >= entry.length) return res;
+  if (entry[i][1] > 1) res.push(parseInt(entry[i][0]));
+  return findDup(entry,i+1,res);
 }
 
 const solution = (a) => {
