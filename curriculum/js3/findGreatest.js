@@ -11,7 +11,6 @@ const findGreatest = (l,max=Number.NEGATIVE_INFINITY) => {
 }
 
 const solution = (l) => {
-  if (!l) return Number.NEGATIVE_INFINITY;
   return findGreatest(l);
 }
 
