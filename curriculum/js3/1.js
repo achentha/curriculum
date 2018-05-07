@@ -34,9 +34,7 @@ const findMax = (arr, max=arr[0], i=1) => {
 }
 
 const solution = (obj) => {
-  let val = Object.values(obj);
-  if (!val.length) return null;
-  else if (val.length === 1) return val[0];
+  const val = Object.values(obj);
   return findMax(val);
 
 }
