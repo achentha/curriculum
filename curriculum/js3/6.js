@@ -8,11 +8,11 @@
  * @param {function} b
  * @returns {object} c
 */
-const execute = (entArr,b,res={}) => {
-  if (!entArr.length) return res;
-  if (b(entArr[0][0],entArr[0][1]))
-    res[entArr[0][0]] = entArr[0][1];
-  return execute(entArr.slice(1),b,res);
+const execute = (entArr,b,i=0,res={}) => {
+  if (i >= entArr.length) return res;
+  if (b(entArr[i][0],entArr[i][1]))
+    res[entArr[i][0]] = entArr[i][1];
+  return execute(entArr,b,i+1,res);
 }
 
 const solution = (a,b)=>{
