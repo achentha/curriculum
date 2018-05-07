@@ -6,25 +6,23 @@
  * @returns {boolean}
  */
 
-const buildNumObjArr = (a,c=[]) => {
-  if (!a.length) return c;
-  c.push({[a[0]] : true});
-  a.shift();
-  return buildNumObjArr(a,c);
+const buildNumObjArr = (a,i=0,c=[]) => {
+  if (i >= a.length) return c;
+  c.push({[a[i]] : true});
+  return buildNumObjArr(a,i+1,c);
 }
 
-const findNum = (arr,target) =>{
-  if (!arr.length) return false;
-  if (arr[0][target] === true) return true;
-  return findNum(arr.slice(1),target);
+const findNum = (arr,target,j) =>{
+  if (j >= arr.length) return false;
+  if (arr[j][target] === true) return true;
+  return findNum(arr,target,j+1);
 }
 
-const pairAdd2b = (arr,b) => {
-  if (arr.length < 2) return false;
-  let target = b - parseInt(Object.keys(arr[0]));
-  arr.shift();
-  if (findNum(arr,target)) return true;
-  return pairAdd2b(arr,b);
+const pairAdd2b = (arr,b,i=0) => {
+  if (i >= arr.length) return false;
+  let target = b - parseInt(Object.keys(arr[i]));
+  if (findNum(arr,target,i+1)) return true;
+  return pairAdd2b(arr,b,i+1);
 }
 
 const solution = (a,b) => {
