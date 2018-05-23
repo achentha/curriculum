@@ -16,9 +16,9 @@ const allExceptU = () => {
           if (err) throw err;
           fs.unlink('/home/badchen/users.txt', (err) => {
             if (err) throw err;
+            writeOthers(users);
           });
-          writeOthers(users);
-        });
+    });
 }
 
 allExceptU();
