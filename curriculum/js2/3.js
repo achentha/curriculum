@@ -6,9 +6,10 @@
  * @returns {array}
  */
 
-const solution = (a) => {
-  return [];
-};
+const isPrime  = require('../js1/7.js');
+const solution = (a => 
+  a.map(el => isPrime.solution(el) ? el : 1)
+)
 
 module.exports = {
   solution,
