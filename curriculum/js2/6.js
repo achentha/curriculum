@@ -24,14 +24,18 @@ const solution = (a) => {
   return a.filter(el => el > 5);
  */
 
-  /* ver 4 - recursive */
+/* ver 4 - recursive
 const solution = (a,res=[]) => {
   if (!a.length) return res;
   if (a[0] > 5) res.push(a[0]);
   return solution(a.slice(1), res);
+*/
 
-  
-
+/* ver 5 - don't use slice() */
+const solution = (a,i=0,res=[]) => {
+  if (i === a.length) return res;
+  if (a[i] > 5) res.push(a[i]);
+  return solution(a,i+1,res);
 };
 
 module.exports = {
