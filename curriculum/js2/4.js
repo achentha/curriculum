@@ -13,8 +13,10 @@ const solution = (a) => {
 
 /* ver 2 - recursive */
 const solution = (a,i=0,sum=0) => {
+  if (a.length === 0) return 0;
   if (i === a.length) return sum;
-
+  console.log(`old sum = ${sum}, new sum = ${sum + a[i]}`);
+  return solution(a,i+1,sum+a[i]);
 };
 
 module.exports = {
