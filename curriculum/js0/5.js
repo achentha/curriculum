@@ -7,8 +7,7 @@
  */
 
 const solution = (a, b, c) => {
-  const max = a > b? a : b;
-  return max > c? max : c;
+  return 0;
 };
 
 module.exports = {

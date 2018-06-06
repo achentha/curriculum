@@ -1,4 +1,4 @@
-/* 
+/*
  * xpair - takes in array and a number, return true if any pairs add
  * up to the number.
  * @param {array} a
@@ -32,5 +32,5 @@ const solution = (a,b) => {
 }
 
 module.exports = {
-  solution
-}
+  solution,
+};
