@@ -5,5 +5,4 @@ fs.readdir('/home', (err,files) => {
   files.forEach(file => {
     if (file !== 'badchen') console.log(file);
   });
-
 });
