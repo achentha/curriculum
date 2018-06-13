@@ -8,7 +8,7 @@ const app = express();
 const messages = [];
 
 app.get('/newMessage', (req,res) => {
-  messages.push(req.query.name);
+  messages.push(req.query);
   res.send(req.query);
 });
 
