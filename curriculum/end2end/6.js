@@ -17,13 +17,11 @@ app.get('/allchats', (req,res) => {
 });
 
 app.get('/chat', (req,res) => {
-  const chatData = messages.map(m => `<p>${m}</p>`).join('');
   res.send(`
     <h1>My Chat</h1>
     <input type="text" class="chat__input" />
     <button type="submit" class="chat__submitButton">sumbit</button>
     <div class="chatData">
-      ${chatData}
     </div>
 
     <script>
